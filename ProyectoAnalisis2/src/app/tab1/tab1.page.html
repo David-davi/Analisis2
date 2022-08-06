@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">s</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container" *ngIf="!crearUsuario">
+    <ion-item>
+      <ion-label>Usuario:</ion-label>
+      <ion-input [(ngModel)]="usuario.nombre" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contraseña:</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.Contrasena" clearInput></ion-input>
+    </ion-item>
+    <ion-button color="primary" (click)="ingresar()" expand="block">Ingresar</ion-button>
+    <ion-button color="danger" (click)="crearCuenta()" expand="block">Crear cuenta</ion-button>
+    <label style="color:red" *ngIf="errorInicio">Usuario o contraseña incorrectos</label>
+  </div>
+
+  <div id="container" *ngIf="crearUsuario">
+    <ion-item>
+      <ion-label>Usuario:</ion-label>
+      <ion-input [(ngModel)]="usuario.nombre" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contraseña:</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.contrasena" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefono:</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.telefono" clearInput></ion-input>
+    </ion-item>
+    <ion-button color="success" (click)="crear()" expand="block">Crear</ion-button>
+    <ion-button color="warning" (click)="regresar()" expand="block">Regresar</ion-button>
+  </div>
+  
+</ion-content>
